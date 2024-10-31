@@ -1,14 +1,7 @@
 import React from 'react';
-import { 
-  
-  Heart, 
- 
-  Filter,
-  
-  MapPin,
-  Star
-} from 'lucide-react';
+import {  Heart, Filter,MapPin, Star, Card} from 'lucide-react';
 import Header from './Header';
+import img2 from '../image/mau15.jpg'; 
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -140,36 +133,51 @@ function ProductCard() {
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-lg transition-shadow">
       <div className="relative">
+        {/* Ảnh sản phẩm */}
         <img
-          src="/api/placeholder/300/400"
-          alt="Product"
+          src={img2}  // Đảm bảo đường dẫn đúng
+          alt="Váy thiết kế"
           className="w-full h-72 object-cover"
         />
+
+        {/* Nút Yêu Thích */}
         <button className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
           <Heart className="h-5 w-5 text-gray-600" />
         </button>
+
+        {/* Khu vực Add to Cart */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="w-full bg-white text-gray-900 py-2 rounded-lg font-medium hover:bg-gray-100">
+          <button className="w-full bg-white text-gray-900 py-2 rounded-lg font-medium hover:bg-gray-100 flex items-center justify-center gap-2">
+            <img
+              src={img2}
+              alt="Add to Cart"
+              className="w-8 h-8 object-cover rounded-full"
+            />
             Add to Cart
           </button>
         </div>
       </div>
+
+      {/* Nội dung sản phẩm nằm dưới ảnh */}
       <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-lg font-semibold">Trendy Summer Dress</h3>
-          <div className="flex items-center">
-            <Star className="h-4 w-4 text-yellow-400 fill-current" />
-            <span className="text-sm text-gray-600 ml-1">4.5</span>
-          </div>
-        </div>
-        <p className="text-gray-600 text-sm mb-2">Light and comfortable for summer days</p>
+        <h3 className="text-lg font-semibold">
+          Váy quây phối chân váy voan mềm mại thiết kế sang trọng
+        </h3>
+        <p className="text-gray-600 text-sm mb-2">
+          Light and comfortable for summer days
+        </p>
         <div className="flex justify-between items-center">
           <span className="text-blue-600 font-bold text-lg">$79.99</span>
           <span className="text-sm text-gray-500">20 sold</span>
+        </div>
+        <div className="flex items-center mt-2">
+          <Star className="h-4 w-4 text-yellow-400 fill-current" />
+          <span className="text-sm text-gray-600 ml-1">4.5</span>
         </div>
       </div>
     </div>
   );
 }
+
 
 export default HomePage;

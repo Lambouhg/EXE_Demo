@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import img3 from '../image/mau23.jpg'; 
 const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Red');
@@ -8,7 +9,7 @@ const ProductDetail = () => {
 
   const product = {
     id: 1,
-    name: "Stylish T-Shirt",
+    name: "Áo yếm nhỏ mùa hè dành cho nữ có đệm ngực Áo khoác ngoài không tay Áo ngắn",
     description: "A stylish t-shirt made from high-quality materials, perfect for any occasion.",
     price: 25.99,
     originalPrice: 35.99,
@@ -80,7 +81,7 @@ const ProductDetail = () => {
         <div className="space-y-4">
           <div className="aspect-square relative rounded-2xl overflow-hidden bg-gray-100">
             <img
-              src={product.imageUrl}
+              src={img3}
               alt={product.name}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
