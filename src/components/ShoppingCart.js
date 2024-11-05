@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Heart, Trash2, Search, Plus, Minus, Percent } from 'lucide-react';
 
 import { AlertDescription ,Alert} from '@chakra-ui/react';
-
+import img4 from '../image/mau12.jpg'; 
+import img5 from '../image/mau11.jpg'; 
 const Cart = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [promoCode, setPromoCode] = useState('');
@@ -11,8 +12,8 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: 'Áo Blazer Dáng Rộng',
-      image: '/api/placeholder/400/320',
+      name: 'Set bộ lẻ áo croptop trễ vai và chân váy ngắn có dây rút nữ.',
+      image: {img4},
       price: 850000,
       originalPrice: 1000000,
       quantity: 1,
@@ -23,8 +24,8 @@ const Cart = () => {
     },
     {
       id: 2,
-      name: 'Quần Jean Ống Đứng',
-      image: '/api/placeholder/400/320',
+      name: 'Áo thun nữ kiểu chéo vai ôm body phối hoa chất liệu thun tăm mềm mịn thoáng mát.',
+      image: {img5},
       price: 650000,
       originalPrice: 800000,
       quantity: 1,

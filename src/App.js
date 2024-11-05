@@ -7,8 +7,7 @@ import ProductDetail from './components/ProductDetail';
 import Order from './components/Order';
 import Cart from './components/ShoppingCart';
 import PaymentScreen from './components/PaymentScreen';
-import ThreeDModel from './components/3DModel'; 
-
+import ThreeDModel from './components/3DModel';
 function App() {
   return (
     <Router>
@@ -19,7 +18,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<PaymentScreen />} />
-        <Route path="/3d-model" element={<ThreeDModel />} />
+        <Route path="/3d-model" element={<ThreeDModel/>} />
       </Routes>
     </Router>
   );
