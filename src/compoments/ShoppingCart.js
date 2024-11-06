@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Heart, Trash2, Search, Plus, Minus, Percent } from 'lucide-react';
-
-import { AlertDescription ,Alert} from '@chakra-ui/react';
-import img4 from '../image/mau12.jpg'; 
-import img5 from '../image/mau11.jpg'; 
+import { AlertDescription, Alert } from '@chakra-ui/react';
+import img4 from '../image/mau12.jpg';
+import img5 from '../image/mau11.jpg';
+import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 const Cart = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
@@ -13,7 +15,7 @@ const Cart = () => {
     {
       id: 1,
       name: 'Set bộ lẻ áo croptop trễ vai và chân váy ngắn có dây rút nữ.',
-      image: {img4},
+      image: img4,
       price: 850000,
       originalPrice: 1000000,
       quantity: 1,
@@ -25,7 +27,7 @@ const Cart = () => {
     {
       id: 2,
       name: 'Áo thun nữ kiểu chéo vai ôm body phối hoa chất liệu thun tăm mềm mịn thoáng mát.',
-      image: {img5},
+      image: img5,
       price: 650000,
       originalPrice: 800000,
       quantity: 1,
@@ -49,7 +51,7 @@ const Cart = () => {
       item.id === id ? { ...item, size: newSize } : item
     ));
   };
-  
+
   const handleSelectAll = () => {
     if (selectedItems.length === cartItems.length) {
       setSelectedItems([]);
@@ -108,6 +110,7 @@ const Cart = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+         <Header/>
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-4xl font-bold text-gray-900">Giỏ hàng của bạn</h1>
@@ -145,7 +148,7 @@ const Cart = () => {
             </div>
           ) : (
             filteredItems.map(item => (
-              <div key={item.id} 
+              <div key={item.id}
                 className="bg-white rounded-2xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100">
                 <div className="flex gap-6">
                   <div className="flex items-center">
@@ -158,22 +161,21 @@ const Cart = () => {
                   </div>
 
                   <div className="relative flex-shrink-0">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
+                    <img
+                      src={item.image}
+                      alt={item.name}
                       className="w-40 h-40 object-cover rounded-xl"
                     />
                     <button
                       onClick={() => handleToggleLike(item.id)}
-                      className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md ${
-                        item.isLiked 
-                          ? 'bg-red-50/80 text-red-500' 
+                      className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md ${item.isLiked
+                          ? 'bg-red-50/80 text-red-500'
                           : 'bg-white/80 text-gray-400'
-                      } transition-all duration-300 hover:scale-110`}
+                        } transition-all duration-300 hover:scale-110`}
                     >
-                      <Heart 
-                        className="w-4 h-4" 
-                        fill={item.isLiked ? "currentColor" : "none"} 
+                      <Heart
+                        className="w-4 h-4"
+                        fill={item.isLiked ? "currentColor" : "none"}
                       />
                     </button>
                   </div>
@@ -245,7 +247,7 @@ const Cart = () => {
         <div className="lg:col-span-1">
           <div className="bg-white rounded-2xl p-6 border border-gray-100 sticky top-6">
             <h3 className="text-lg font-semibold mb-6">Tổng đơn hàng</h3>
-            
+
             <div className="space-y-4 mb-6">
               <div className="flex justify-between">
                 <span className="text-gray-600">Tạm tính</span>
@@ -286,7 +288,8 @@ const Cart = () => {
                 </Alert>
               )}
 
-              <button 
+              <button
+                onClick={() => navigate('/payment')} // Add onClick handler
                 className="w-full bg-blue-600 text-white py-4 rounded-xl hover:bg-blue-700 transition-colors font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={selectedItems.length === 0}
               >
